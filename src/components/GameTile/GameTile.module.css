@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.overlay {
+  position: absolute;
+  opacity: 0;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: inherit;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.game-name {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}

@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import GamesList from "./components/GamesList";
+import Header from "./components/Header";
+import games from "./games";
 
 function App() {
+  const [filteredGames, setFilteredGames] = React.useState(games);
+  const handleCategoryFilter = (category: string) => {
+    const casinoGames =
+      category === "All Games"
+        ? games
+        : games.filter((game) =>
+            game.cats.find(({ title }) => title === category)
+          );
+
+    setFilteredGames(casinoGames);
+  };
+
+  const handleSearch = (term: string) => {
+    setFilteredGames(
+      games.filter((game) =>
+        game.name.toLowerCase().includes(term.toLowerCase())
+      )
+    );
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header onCategoryFilter={handleCategoryFilter} onSearch={handleSearch} />
+      <GamesList games={filteredGames} />
     </div>
   );
 }
