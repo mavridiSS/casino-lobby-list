@@ -9,7 +9,7 @@ interface Props {
 
 export default function GamesList({ games }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="games-list">
       {games.map((game) => (
         <GameTile key={game.id} game={game} />
       ))}

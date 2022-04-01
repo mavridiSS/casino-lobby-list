@@ -14,7 +14,7 @@ export default function GameTile({ game }: Props) {
   //There are casino games images with are missing so we don't display them
   if (!isImageLoaded) return null;
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="game">
       <LazyImage src={game.icon_2} alt={game.name} onError={handleImageError} />
       <div className={styles.overlay}>
         <h4 className={styles["game-name"]}>{game.name}</h4>
