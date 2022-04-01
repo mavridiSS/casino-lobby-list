@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import GamesList from "./components/GamesList";
 import Header from "./components/Header";
 import games from "./games";
